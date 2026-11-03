@@ -1,0 +1,76 @@
+[package]
+name = "mreader"
+version = "1.0.0"
+edition = "2021"
+rust-version = "1.80"
+authors = ["Mreader Contributors"]
+description = "A smart visual pacing reader for Linux and Windows"
+license = "GPL-3.0-or-later"
+readme = "README.md"
+homepage = "https://github.com/rustpace/rustpace"
+repository = "https://github.com/rustpace/rustpace"
+keywords = ["reader", "pacing", "gtk", "linux", "windows", "ebook"]
+categories = ["gui", "text-processing"]
+
+[dependencies]
+gtk = { version = "0.11", package = "gtk4", features = ["v4_14"] }
+glib = "0.22"
+gio = "0.22"
+gdk = { version = "0.11", package = "gdk4" }
+pango = "0.22"
+cairo = { version = "0.22", package = "cairo-rs" }
+poppler = { version = "0.26", package = "poppler-rs" }
+rusqlite = { version = "0.37", features = ["bundled"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+toml = "0.9"
+chrono = { version = "0.4", features = ["serde"] }
+thiserror = "2"
+anyhow = "1"
+uuid = { version = "1", features = ["v4"] }
+dirs = "6"
+zip = { version = "2", default-features = false, features = ["deflate"] }
+quick-xml = "0.38"
+epub = "2.1"
+pulldown-cmark = "0.13"
+html5ever = "0.35"
+markup5ever_rcdom = "0.35"
+regex = "1"
+log = "0.4"
+env_logger = "0.11"
+once_cell = "1"
+rtf-parser = "0.4"
+
+[dev-dependencies]
+tempfile = "3"
+
+[package.metadata.deb]
+name = "mreader"
+maintainer = "Mreader Contributors <mreader@example.com>"
+copyright = "2026 Mreader Contributors"
+license-file = ["LICENSE", "0"]
+extended-description = """Mreader is a distraction-free document reader for Linux
+that helps users practise faster, more consistent reading through
+configurable visual pacing techniques."""
+depends = "$auto, libgtk-4-1, libpoppler-glib8t64 | libpoppler-glib8, libglib2.0-0"
+section = "text"
+priority = "optional"
+conflicts = "rustpace"
+replaces = "rustpace"
+assets = [
+    ["target/release/mreader", "usr/bin/", "755"],
+    ["assets/icons/mreader.svg", "usr/share/icons/hicolor/scalable/apps/", "644"],
+    ["assets/mreader.desktop", "usr/share/applications/", "644"],
+    ["assets/com.mreader.Mreader.metainfo.xml", "usr/share/metainfo/", "644"],
+    ["README.md", "usr/share/doc/mreader/", "644"],
+]
+
+[[bin]]
+name = "mreader"
+path = "src/main.rs"
+
+[profile.release]
+lto = true
+codegen-units = 1
+strip = true
+opt-level = 3

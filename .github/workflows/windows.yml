@@ -1,0 +1,52 @@
+name: Windows build
+
+on:
+  push:
+    branches: [main]
+    tags: ["v*"]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  windows-x64:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: x86_64-pc-windows-gnu
+
+      - uses: msys2/setup-msys2@v2
+        with:
+          msystem: MINGW64
+          update: true
+          install: >-
+            mingw-w64-x86_64-toolchain
+            mingw-w64-x86_64-gtk4
+            mingw-w64-x86_64-poppler
+            mingw-w64-x86_64-pkgconf
+            mingw-w64-x86_64-adwaita-icon-theme
+            zip
+
+      - name: Build Windows executable and portable bundle
+        shell: msys2 {0}
+        run: bash scripts/build-windows.sh
+
+      - name: Upload Windows executable
+        uses: actions/upload-artifact@v4
+        with:
+          name: mreader-windows-x64-exe
+          path: target/mreader-windows-x64/mreader.exe
+          if-no-files-found: error
+
+      - name: Upload portable Windows bundle
+        uses: actions/upload-artifact@v4
+        with:
+          name: mreader-windows-x64
+          path: target/mreader-windows-x64.zip
+          if-no-files-found: error

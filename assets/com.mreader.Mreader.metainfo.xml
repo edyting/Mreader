@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>com.mreader.Mreader</id>
+  <name>Mreader</name>
+  <summary>Smart visual pacing reader for Linux</summary>
+  <metadata_license>CC0-1.0</metadata_license>
+  <project_license>GPL-3.0-or-later</project_license>
+  <description>
+    <p>
+      Mreader helps you practise faster, more consistent reading with a
+      configurable visual pacer. Import PDF, DOCX, EPUB, Markdown, HTML,
+      RTF and plain text documents, then follow a highlight, underline,
+      pointer, phrase group or RSVP display at a speed you choose.
+    </p>
+  </description>
+  <launchable type="desktop-id">mreader.desktop</launchable>
+  <url type="homepage">https://github.com/rustpace/rustpace</url>
+  <provides>
+    <binary>mreader</binary>
+  </provides>
+  <supports>
+    <control>pointing</control>
+    <control>keyboard</control>
+  </supports>
+  <content_rating type="oars-1.1"/>
+</component>

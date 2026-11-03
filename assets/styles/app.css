@@ -1,0 +1,128 @@
+/* RustPace — typography-focused, distraction-free reading */
+
+window.mreader-window {
+  background-color: @theme_bg_color;
+}
+
+.top-bar {
+  padding: 6px 12px;
+  background-color: alpha(@theme_bg_color, 0.96);
+  border-bottom: 1px solid alpha(@borders, 0.6);
+}
+
+.brand-label {
+  font-family: "Source Serif 4", "Liberation Serif", "DejaVu Serif", serif;
+  font-weight: 700;
+  font-size: 1.15em;
+  letter-spacing: 0.02em;
+}
+
+.sidebar {
+  min-width: 220px;
+  background-color: alpha(@theme_bg_color, 0.92);
+  border-right: 1px solid alpha(@borders, 0.5);
+  padding: 8px;
+}
+
+.sidebar .nav-button {
+  padding: 8px 12px;
+  margin: 2px 0;
+  border-radius: 6px;
+}
+
+.sidebar .nav-button:checked,
+.sidebar .nav-button:hover {
+  background-color: alpha(@theme_selected_bg_color, 0.18);
+}
+
+.reading-area {
+  padding: 24px 16px;
+}
+
+.reading-title {
+  font-family: "Source Serif 4", "Liberation Serif", serif;
+  font-size: 1.6em;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.reading-content {
+  font-family: "Literata", "Source Serif 4", "Liberation Serif", serif;
+  font-size: 1.15em;
+  line-height: 1.7;
+}
+
+.bottom-toolbar {
+  padding: 8px 16px;
+  border-top: 1px solid alpha(@borders, 0.6);
+  background-color: alpha(@theme_bg_color, 0.98);
+}
+
+.wpm-label {
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  min-width: 5em;
+}
+
+.progress-label {
+  font-variant-numeric: tabular-nums;
+  opacity: 0.8;
+}
+
+.rsvp-word {
+  font-family: "Literata", "Source Serif 4", "Liberation Serif", serif;
+  font-size: 2.4em;
+  font-weight: 500;
+}
+
+.rsvp-focal {
+  color: #c0392b;
+  font-weight: 700;
+}
+
+.theme-light {
+  background-color: #faf9f7;
+  color: #1a1a1a;
+}
+
+.theme-dark {
+  background-color: #1c1c1e;
+  color: #e8e6e3;
+}
+
+.theme-sepia {
+  background-color: #f4ecd8;
+  color: #5b4636;
+}
+
+.status-bar {
+  padding: 4px 12px;
+  font-size: 0.85em;
+  opacity: 0.75;
+}
+
+.settings-row {
+  padding: 6px 0;
+}
+
+.library-row {
+  padding: 8px;
+  border-radius: 6px;
+}
+
+.library-row:hover {
+  background-color: alpha(@theme_selected_bg_color, 0.12);
+}
+
+.stats-card {
+  padding: 16px;
+  border-radius: 8px;
+  background-color: alpha(@theme_base_color, 0.4);
+  margin: 8px;
+}
+
+.chart-area {
+  min-height: 180px;
+  border-radius: 6px;
+  background-color: alpha(@theme_base_color, 0.3);
+}

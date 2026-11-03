@@ -1,0 +1,13 @@
+[Desktop Entry]
+Name=Mreader
+GenericName=Visual Pacing Reader
+Comment=Practise faster reading with a visual pacer
+Exec=mreader %F
+Icon=mreader
+Terminal=false
+Type=Application
+Categories=Office;Viewer;Education;
+MimeType=application/pdf;application/epub+zip;application/vnd.openxmlformats-officedocument.wordprocessingml.document;text/plain;text/markdown;text/html;application/rtf;text/rtf;
+Keywords=reader;pacing;speed;reading;ebook;pdf;
+StartupNotify=true
+StartupWMClass=mreader

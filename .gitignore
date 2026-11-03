@@ -1,0 +1,22 @@
+# Rust build output and packaged artifacts
+/target/
+
+# Crash dumps and temporary files
+/core
+/core.*
+*.dmp
+*.tmp
+*.swp
+*~
+
+# Local environment and application data
+.env
+.env.*
+*.db
+*.db-shm
+*.db-wal
+
+# Operating-system files
+.DS_Store
+Thumbs.db
+Desktop.ini
